@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {NumericFormat} from 'react-number-format';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 import {styles} from './styles';
@@ -36,12 +37,21 @@ export const Item: FC<Props> = ({product: p}) => {
         </Typography>
       </View>
       <View style={styles.points}>
-        <Typography weight="bold">
-          <Text style={won ? styles.success : styles.alert}>
-            {won ? '+' : '-'}
-          </Text>
-          {p.points}
-        </Typography>
+        <NumericFormat
+          value={p.points}
+          thousandSeparator
+          decimalSeparator="."
+          displayType={'text'}
+          renderText={(valueFormated: string) => (
+            <Typography weight="bold">
+              <Text style={won ? styles.success : styles.alert}>
+                {won ? '+ ' : '- '}
+              </Text>
+              {valueFormated}
+            </Typography>
+          )}
+        />
+
         <Typography weight="bold">{'>'}</Typography>
       </View>
     </TouchableOpacity>

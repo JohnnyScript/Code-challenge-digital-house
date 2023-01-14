@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import {View} from 'react-native';
+import {NumericFormat} from 'react-number-format';
 
 import {styles} from './styles';
 import {Typography} from '../Typography';
@@ -15,9 +16,17 @@ export const SummaryCard: FC<Props> = ({value}) => (
       </Typography>
     </View>
     <View style={styles.summary}>
-      <Typography color="white" size="extra" weight="bold">
-        {value} pts
-      </Typography>
+      <NumericFormat
+        value={value}
+        thousandSeparator
+        decimalSeparator="."
+        displayType={'text'}
+        renderText={(valueFormated: string) => (
+          <Typography color="white" size="extra" weight="bold">
+            {valueFormated} pts
+          </Typography>
+        )}
+      />
     </View>
   </View>
 );

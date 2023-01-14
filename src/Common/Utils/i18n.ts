@@ -7,13 +7,13 @@ import es from '../../assets/i18n/es.json';
 
 const deviceLanguage: string =
   Platform.OS === 'ios'
-    ? NativeModules.SettingsManager.settings.AppleLocale ||
-      NativeModules.SettingsManager.settings.AppleLanguages[0] //iOS 13
-    : NativeModules.I18nManager.localeIdentifier;
+    ? NativeModules.SettingsManager?.settings?.AppleLocale ||
+      NativeModules.SettingsManager?.settings?.AppleLanguages[0] //iOS 13
+    : NativeModules.I18nManager?.localeIdentifier;
 
 i18n.use(initReactI18next).init({
   compatibilityJSON: 'v3',
-  lng: deviceLanguage.includes('es') ? 'es' : 'en',
+  lng: (deviceLanguage || '').includes('es') ? 'es' : 'en',
   fallbackLng: 'en',
   resources: {
     en,

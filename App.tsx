@@ -11,7 +11,7 @@ const backgroundStyle = StyleSheet.create({
   },
 });
 
-const App = () => {
+function App() {
   return (
     <SafeAreaView style={backgroundStyle.safeArea}>
       <StatusBar
@@ -21,6 +21,6 @@ const App = () => {
       <Router />
     </SafeAreaView>
   );
-};
+}
 
 export default App;

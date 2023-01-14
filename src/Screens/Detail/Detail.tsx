@@ -1,13 +1,14 @@
 import {FC} from 'react';
 import {useTranslation} from 'react-i18next';
+import {NumericFormat} from 'react-number-format';
 import {Image, StatusBar, View} from 'react-native';
 
 import {styles} from './styles';
 import {Product} from '../../Common/Types';
 import {Screen} from '../../Components/Screen';
+import {Button} from '../../Components/Button';
 import {Typography} from '../../Components/Typography';
 import {BLUE_LIGHT} from '../../Common/Constants/colors';
-import {Button} from '../../Components/Button';
 import {getDateFormat} from '../../Common/Utils/dates';
 
 type Props = {
@@ -49,9 +50,17 @@ export const Detail: FC<Props> = ({route, navigation}) => {
         <Typography margin="large" color="gray" weight="bold" size="small">
           {t('accumulate')}
         </Typography>
-        <Typography weight="bold" size="large">{`${p.points} ${t(
-          'points',
-        )}`}</Typography>
+        <NumericFormat
+          value={p.points}
+          thousandSeparator
+          decimalSeparator="."
+          displayType={'text'}
+          renderText={(valueFormated: string) => (
+            <Typography weight="bold" size="large">{`${valueFormated} ${t(
+              'points',
+            )}`}</Typography>
+          )}
+        />
         <View style={styles.contentButton}>
           <Button onPress={navigation.goBack} full>
             {t('agree')}
