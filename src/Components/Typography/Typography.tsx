@@ -11,17 +11,15 @@ export const Typography: FC<Props> = ({
   color,
   size,
   margin,
-}) => {
-  return (
-    <Text
-      style={buildStyles({
-        weight,
-        upperCase,
-        color,
-        size,
-        margin,
-      })}>
-      {children as string}
-    </Text>
-  );
-};
+}) => (
+  <Text
+    style={buildStyles({
+      weight,
+      upperCase,
+      color,
+      size,
+      margin,
+    })}>
+    {children as string}
+  </Text>
+);

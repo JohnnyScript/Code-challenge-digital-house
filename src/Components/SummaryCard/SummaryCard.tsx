@@ -7,19 +7,17 @@ type Props = {
   value: number;
 };
 
-export const SummaryCard: FC<Props> = ({value}) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.month}>
-        <Typography color="white" weight="bold">
-          Diciembre
-        </Typography>
-      </View>
-      <View style={styles.summary}>
-        <Typography color="white" size="extra" weight="bold">
-          {value} pts
-        </Typography>
-      </View>
+export const SummaryCard: FC<Props> = ({value}) => (
+  <View style={styles.container}>
+    <View style={styles.month}>
+      <Typography color="white" weight="bold">
+        Diciembre
+      </Typography>
     </View>
-  );
-};
+    <View style={styles.summary}>
+      <Typography color="white" size="extra" weight="bold">
+        {value} pts
+      </Typography>
+    </View>
+  </View>
+);

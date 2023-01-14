@@ -1,5 +1,5 @@
 import {Product} from '../Common/Types';
-import {get} from '../Common/Utils/AxiosAdapter';
+import {get} from '../Common/Utils/axiosAdapter';
 import {API_BASE_URL} from '../Common/Constants/api';
 
 export const getProducts = (): Promise<Product[]> => {

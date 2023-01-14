@@ -24,7 +24,8 @@ const colors = {
 const sizes = {
   small: 12,
   medium: 15,
-  large: 17,
+  large: 19,
+  big: 24,
   extra: 32,
 };
 

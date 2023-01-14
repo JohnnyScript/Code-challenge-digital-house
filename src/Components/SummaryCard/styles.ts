@@ -13,13 +13,13 @@ export const styles = StyleSheet.create({
     backgroundColor: BLUE,
     shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 5,
+      width: 2,
+      height: 7,
     },
     shadowOpacity: 0.84,
-    shadowRadius: 4.27,
+    shadowRadius: 2.27,
 
-    elevation: 4,
+    elevation: 6,
   },
   month: {
     top: 20,

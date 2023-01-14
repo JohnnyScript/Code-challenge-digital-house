@@ -8,7 +8,6 @@ import {BACKGROUND_APP_COLOR} from './src/Common/Constants/colors';
 const backgroundStyle = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: BACKGROUND_APP_COLOR,
   },
 });
 

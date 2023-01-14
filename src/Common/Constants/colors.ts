@@ -4,3 +4,5 @@ export const WHITE = '#FFF';
 
 export const SUCCESS = '#00B833';
 export const ALERT = '#FF0000';
+
+export const BLUE_LIGHT = '#CFD6FF';

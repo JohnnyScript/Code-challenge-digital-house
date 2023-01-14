@@ -2,7 +2,7 @@ import {DefaultTFuncReturn} from 'i18next';
 
 type WeightTypography = 'normal' | 'bold';
 type ColorTypography = 'white' | 'gray' | 'black';
-type SizeTypography = 'small' | 'medium' | 'large' | 'extra';
+type SizeTypography = 'small' | 'medium' | 'large' | 'big' | 'extra';
 type MarginTypography = 'small' | 'medium' | 'large';
 
 export type Props = {

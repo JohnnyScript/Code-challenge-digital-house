@@ -2,6 +2,7 @@ import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {styles} from './styles';
+import {Screen} from '../../Components/Screen';
 import {Button} from '../../Components/Button';
 import {ItemList} from '../../Components/ItemList';
 import {useProducts} from '../../Hooks/useProducts';
@@ -13,7 +14,7 @@ export const Home = () => {
   const {products, points, filter, setFilter} = useProducts();
 
   return (
-    <View>
+    <Screen>
       <Typography size="large" weight="bold">
         {t('welcome')}
       </Typography>
@@ -65,6 +66,6 @@ export const Home = () => {
           </>
         )}
       </View>
-    </View>
+    </Screen>
   );
 };
