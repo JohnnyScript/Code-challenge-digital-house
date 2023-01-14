@@ -6,3 +6,5 @@ export type Product = {
   image: string;
   is_redemption: false;
 };
+
+export type FilterProduct = null | 'won' | 'redeemed';

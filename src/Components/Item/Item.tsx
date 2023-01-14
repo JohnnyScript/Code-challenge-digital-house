@@ -1,33 +1,42 @@
-import {Image, Text, View} from 'react-native';
+import {FC} from 'react';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 import {styles} from './styles';
 import {Typography} from '../Typography';
+import {Product} from '../../Common/Types';
 
-export const Item = () => {
-  const won = true;
+type Props = {
+  product: Product;
+};
+
+export const Item: FC<Props> = ({product: p}) => {
+  const won = !p.is_redemption;
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image
         source={{
-          uri: 'https://picsum.photos/200/300',
+          uri: p.image,
         }}
         style={styles.image}
       />
       <View style={styles.data}>
         <Typography weight="bold" size="small">
-          Nombre del producto
+          {p.product}
         </Typography>
         <Typography margin="medium" size="small">
-          26 de enero, 2019
+          {p.createdAt}
         </Typography>
       </View>
       <View style={styles.points}>
         <Typography weight="bold">
-          <Text style={won ? styles.success : styles.alert}>+</Text>100
+          <Text style={won ? styles.success : styles.alert}>
+            {won ? '+' : '-'}
+          </Text>
+          {p.points}
         </Typography>
         <Typography weight="bold">{'>'}</Typography>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };

@@ -7,5 +7,7 @@ export const styles = StyleSheet.create({
   },
   containerButtons: {
     marginTop: 30,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });

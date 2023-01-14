@@ -3,8 +3,11 @@ import {View} from 'react-native';
 
 import {styles} from './styles';
 import {Typography} from '../Typography';
+type Props = {
+  value: number;
+};
 
-export const SummaryCard: FC = () => {
+export const SummaryCard: FC<Props> = ({value}) => {
   return (
     <View style={styles.container}>
       <View style={styles.month}>
@@ -14,7 +17,7 @@ export const SummaryCard: FC = () => {
       </View>
       <View style={styles.summary}>
         <Typography color="white" size="extra" weight="bold">
-          10,00.00 pts
+          {value} pts
         </Typography>
       </View>
     </View>

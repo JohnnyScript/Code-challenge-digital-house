@@ -4,11 +4,14 @@ import {useTranslation} from 'react-i18next';
 import {styles} from './styles';
 import {Button} from '../../Components/Button';
 import {ItemList} from '../../Components/ItemList';
+import {useProducts} from '../../Hooks/useProducts';
 import {Typography} from '../../Components/Typography';
 import {SummaryCard} from '../../Components/SummaryCard';
 
 export const Home = () => {
   const {t} = useTranslation();
+  const {products, points, filter, setFilter} = useProducts();
+
   return (
     <View>
       <Typography size="large" weight="bold">
@@ -24,7 +27,7 @@ export const Home = () => {
         {t('yourPoints')}
       </Typography>
       <View style={styles.contentCard}>
-        <SummaryCard />
+        <SummaryCard value={points} />
       </View>
       <Typography
         margin="large"
@@ -34,14 +37,33 @@ export const Home = () => {
         size="small">
         {t('yourMovements')}
       </Typography>
-      <ItemList />
+      <ItemList products={products} />
       <View style={styles.containerButtons}>
-        <Button onPress={() => {}} full>
-          Todos
-        </Button>
-        {/* <Button onPress={() => {}} outline>
-          Canjeados
-        </Button> */}
+        {filter && (
+          <Button
+            onPress={() => {
+              setFilter(null);
+            }}
+            full>
+            {t('allButtons')}
+          </Button>
+        )}
+        {!filter && (
+          <>
+            <Button
+              onPress={() => {
+                setFilter('won');
+              }}>
+              {t('won')}
+            </Button>
+            <Button
+              onPress={() => {
+                setFilter('redeemed');
+              }}>
+              {t('redeemed')}
+            </Button>
+          </>
+        )}
       </View>
     </View>
   );
